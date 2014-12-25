@@ -24,7 +24,7 @@ La particularité de l’action sur la lumière est qu’elle est commune aux de
 -  
 Il y a aussi des bornes d’éclairage de secours qui éclairent localement (cases adjacentes) même lorsque l’éclairage général est éteint. Il est possible de détruire ces bornes en leur tirant dessus.
 
-  3.4 Pistolet à impulsions électriques
+   3.4 Pistolet à impulsions électriques
 -  
 Chaque joueu(r/euse) dispose d’un pistolet à impulsions électriques dis- posant d’un certain nombre de charges (8) avant que la batterie ne soit épuisée. Ce pistolet a une portée de 4 cases dans la direction de déplace- ment du personnage, le pistolet touche seulement la première cible dans la limite de sa portée. Les cibles possibles sont :
   • l’autre personnage, qui est alors immobilisé pour 4 secondes
