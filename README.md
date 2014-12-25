@@ -34,14 +34,14 @@ Lorsqu’un PIE est utilisé, il émet des étincelles qui révèlent la positio
 3.5 Conditions de fin de jeu
 -
 Le jeu se termine lorsque l’une des conditions suivante survient :
-  • le personnage I atteint l’ordinateur et s’y maintient 5 secondes
-  • le personnage G reste 5 secondes consécutives au contact du personnage G.
+		  • le personnage I atteint l’ordinateur et s’y maintient 5 secondes
+		  • le personnage G reste 5 secondes consécutives au contact du personnage G.
 
 3.6 Cahier des charges de base
 -
 Le jeu doit implémenter les règles ci-dessus pour : 
-  • un niveau de jeu prédéfini donné en annexe 
-  • d’autres niveaux de jeu.
+		 • un niveau de jeu prédéfini donné en annexe 
+		 • d’autres niveaux de jeu.
 
 3.7 Options
 -
