@@ -6,9 +6,10 @@ Sujet
 =============
 
 Il s’agit d’un petit jeu graphique vu du dessus pour deux joueu(r/euse)s avec contrôle au clavier. Chacun des joueu(r/euse)s peut :
-  • se déplacer dans les quatre directions
-  • tirer avec un pistolet à impulsion électrique
-  • provoquer l’extinction des lumières (avec la barre espace)
+
+		• se déplacer dans les quatre directions
+		• tirer avec un pistolet à impulsion électrique
+		• provoquer l’extinction des lumières (avec la barre espace)
 
   3.1 Contexte de l’histoire
 -
@@ -26,20 +27,23 @@ Il y a aussi des bornes d’éclairage de secours qui éclairent localement (cas
 
    3.4 Pistolet à impulsions électriques
 -  
-Chaque joueu(r/euse) dispose d’un pistolet à impulsions électriques dis- posant d’un certain nombre de charges (8) avant que la batterie ne soit épuisée. Ce pistolet a une portée de 4 cases dans la direction de déplace- ment du personnage, le pistolet touche seulement la première cible dans la limite de sa portée. Les cibles possibles sont :
-  • l’autre personnage, qui est alors immobilisé pour 4 secondes
-  • une borne d’éclairage de secours, qui est alors définitivement détruite (et devient un passage normal pour le reste de la partie).
+Chaque joueu(r/euse) dispose d’un pistolet à impulsions électriques dis- posant d’un certain nombre de charges (8) avant que la batterie ne soit épuisée. Ce pistolet a une portée de 4 cases dans la direction de déplacement du personnage, le pistolet touche seulement la première cible dans la limite de sa portée. Les cibles possibles sont :
+		
+		 • l’autre personnage, qui est alors immobilisé pour 4 secondes
+		 • une borne d’éclairage de secours, qui est alors définitivement détruite (et devient un passage normal pour le reste de la partie).
 Lorsqu’un PIE est utilisé, il émet des étincelles qui révèlent la position du joueur si l’éclairage était éteint.
 
 3.5 Conditions de fin de jeu
 -
 Le jeu se termine lorsque l’une des conditions suivante survient :
+	
 		  • le personnage I atteint l’ordinateur et s’y maintient 5 secondes
 		  • le personnage G reste 5 secondes consécutives au contact du personnage G.
 
 3.6 Cahier des charges de base
 -
 Le jeu doit implémenter les règles ci-dessus pour : 
+
 		 • un niveau de jeu prédéfini donné en annexe 
 		 • d’autres niveaux de jeu.
 
