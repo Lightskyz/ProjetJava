@@ -2,10 +2,14 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/Users/Antoine/Desktop/ProjetJava/JeuJava/Lib/lwjgl_util.jar"/>
-	<classpathentry kind="lib" path="/Users/Antoine/Desktop/ProjetJava/JeuJava/Lib/lwjgl.jar">
+	<classpathentry kind="lib" path="/Users/Antoine/Desktop/Projet/Projet_Java/ProjetJava/Lib/lwjgl-2.9.0/lwjgl_util.jar">
 		<attributes>
-			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="JeuJava/Lib/native_mac"/>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="/Users/Antoine/Desktop/Projet/Projet_Java/ProjetJava/Lib/lwjgl-2.9.0/native/macosx"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/Antoine/Desktop/Projet/Projet_Java/ProjetJava/Lib/lwjgl-2.9.0/lwjgl.jar">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="/Users/Antoine/Desktop/Projet/Projet_Java/ProjetJava/Lib/lwjgl-2.9.0/native/macosx"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="output" path="bin"/>
