@@ -1,13 +1,15 @@
 package com.kevant.main;
 	
+import static org.lwjgl.opengl.GL11.*;
+
 import org.lwjgl.LWJGLException; //Utilisation de la bibliotheque OpenGL
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
 import org.lwjgl.util.glu.GLU;
 
-import com.kevant.main.graphics.Renderer;
+import com.kevant.main.game.Game;
 
-import static org.lwjgl.opengl.GL11.*;
+
 
 
 
@@ -26,32 +28,14 @@ public class Component {
 		public static boolean render = false;
 		
 		DisplayMode mode = new DisplayMode( width * scale ,  height * scale ); //création de la fenetre "mode"
+		
+		Game game;
 	
 		public Component ( ) { 
-			try{
-				Display.setDisplayMode(mode); //afficher la fenetre "mode" qu'on a crée précedemment
-				Display.setResizable(true); //pour pouvoir modifier la taille de la fenetre de jeu
-				Display.setFullscreen(false); //pour ne pas que la fenetre du jeu soit en plein ecran lorsqu'on l'ouvre
-				Display.setTitle(title); //affiche le titre de notre jeu
-				Display.create( ); //creation de notre fenetre mais elle se ferme aussi tôt, on doit créer une boucle pour qu'elle reste ouverte
+			display ();
+			game = new Game (); //on fait un nouveau jeu (on crée une instance de "game")
+		}
 				
-				view2D(width, height);
-			} catch (LWJGLException e){
-				e.printStackTrace( );
-			}
-		}
-		
-		private void view2D( int width , int height ){ //on initialise OpenGL pour pouvoir afficher quelque chose dans notre fenetre
-			glViewport (0, 0, width *  scale , height * scale );
-			
-			
-			glMatrixMode(GL_PROJECTION); //définit les propriété de la vue de notre camera qui nous montre nos objets
-			glLoadIdentity( ); //remettre à jour nos entités		-- remettre à 0 les compteurs
-			GLU.gluOrtho2D(0, width, height, 0);// la largeur à l'ecran
-			glMatrixMode(GL_MODELVIEW); //définit comme nos objets vont se transformer (translation, rotation, homothétie) - on retourne à la vue d'origine
-			glLoadIdentity( ); //reloader les identités ?
-		}
-		
 		public void start ( ) { //démarrer la boucle
 			running = true; 
 			loop(); //la boucle démarre comme running = true
@@ -67,6 +51,8 @@ public class Component {
 		}
 		
 		public void loop( ){ //fonction de la boucle
+			
+			game.init();
 			
 			long timer = System.currentTimeMillis();
 			
@@ -121,24 +107,57 @@ public class Component {
 		
 		public void update( ){ //fait tous les calculs du jeu
 			time ++;
+			
+			game.update();
 		}
 		
 		
 		public void render ( ){ //dessiner quelque chose à l'ecran
 			view2D(width , height ); //taille de la fenetre 
-			
 			glClear(GL_COLOR_BUFFER_BIT);  //on enleve les residus du cube ! (sans ça, on le voit trainer)
+			// --
 			
-			float [] color = new float []{0.5f, 0.8f, 0.1f, 1.0f};
+			game.render();
 			
-			Renderer.renderQuad( 50 , 50 , 16 , 16 , color); //remplace tout ce qu'il y a ci-dessus
 			
+			/*
+			 * float [] color = new float []{0.5f, 0.8f, 0.1f, 1.0f};
+			 *
+			*
+			* Renderer.renderQuad( 50 , 50 , 16 , 16 , color); //remplace tout ce qu'il y a ci-dessus
+			*/
 			/*   
 			 * 		Si elles n'etaient pas statiques : 
 			 * 		Renderer r = new Renderer();
 			 * 		r.renderQuad(x,y,w,h);
 			 */
 		}
+		
+		public void display(){
+			try{
+				Display.setDisplayMode(mode); //afficher la fenetre "mode" qu'on a crée précedemment
+				Display.setResizable(true); //pour pouvoir modifier la taille de la fenetre de jeu
+				Display.setFullscreen(false); //pour ne pas que la fenetre du jeu soit en plein ecran lorsqu'on l'ouvre
+				Display.setTitle(title); //affiche le titre de notre jeu
+				Display.create( ); //creation de notre fenetre mais elle se ferme aussi tôt, on doit créer une boucle pour qu'elle reste ouverte
+				
+				view2D(width, height);
+			} catch (LWJGLException e){
+				e.printStackTrace( );
+			}
+		}
+		
+		private void view2D( int width , int height ){ //on initialise OpenGL pour pouvoir afficher quelque chose dans notre fenetre
+			glViewport (0, 0, width *  scale , height * scale );
+			
+			
+			glMatrixMode(GL_PROJECTION); //définit les propriété de la vue de notre camera qui nous montre nos objets
+			glLoadIdentity( ); //remettre à jour nos entités		-- remettre à 0 les compteurs
+			GLU.gluOrtho2D(0, width, height, 0);// la largeur à l'ecran
+			glMatrixMode(GL_MODELVIEW); //définit comme nos objets vont se transformer (translation, rotation, homothétie) - on retourne à la vue d'origine
+			glLoadIdentity( ); //reloader les identités ?
+		}
+
 		
 		
 		
