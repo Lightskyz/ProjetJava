@@ -8,6 +8,7 @@ import org.lwjgl.util.glu.GLU;
 import static org.lwjgl.opengl.GL11.*;
 
 
+
 public class Component {
 
 		public boolean running = false; //booleen qui nous permet de créer notre boucle
