@@ -1,7 +1,6 @@
 package com.kevant.main.graphics;
 
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 
@@ -13,6 +12,9 @@ import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.opengl.GL12.*;
 
 public class Texture {
+	
+	public static Texture tiles = loadTexture("/textures/textures.png");
+	
 	int width, height; //taille de la texture
 	int id;
 
@@ -25,7 +27,7 @@ public class Texture {
 		//pour qu'on puisse recuperer la texture partout ('static') et ne la charger qu'une seule fois
 		BufferedImage image = null;
 		try{
-			image = ImageIO.read(new File(path));
+			image = ImageIO.read(Texture.class.getResource(path));
 		} catch (IOException e){
 			e.printStackTrace();
 		}
@@ -62,5 +64,18 @@ public class Texture {
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, w , h , 0, GL_RGBA, GL_UNSIGNED_BYTE, buffer);
 		
 		return new Texture(w, h, id);
+	}
+	
+	public int getWidth(){
+		return width;
+	}
+	public int getHeight(){
+		return height;
+	}
+	public void bind(){
+		glBindTexture(GL_TEXTURE_2D, id);
+	}
+	public void unbind(){
+		glBindTexture(GL_TEXTURE_2D, 0); //on reset le bind
 	}
 }

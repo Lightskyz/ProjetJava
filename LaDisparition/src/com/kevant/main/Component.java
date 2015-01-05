@@ -155,7 +155,10 @@ public class Component {
 			glLoadIdentity( ); //remettre à jour nos entités		-- remettre à 0 les compteurs
 			GLU.gluOrtho2D(0, width, height, 0);// la largeur à l'ecran
 			glMatrixMode(GL_MODELVIEW); //définit comme nos objets vont se transformer (translation, rotation, homothétie) - on retourne à la vue d'origine
-			glLoadIdentity( ); //reloader les identités ?
+			glLoadIdentity( ); //reset les matrices
+			
+			glEnable(GL_TEXTURE_2D);
+			
 		}
 
 		
