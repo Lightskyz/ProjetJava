@@ -4,6 +4,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 
+
 import javax.imageio.ImageIO;
 
 import org.lwjgl.BufferUtils;
@@ -40,8 +41,8 @@ public class Texture {
 		
 		ByteBuffer buffer = BufferUtils.createByteBuffer (w * h * 4);// buffer = memoire tampon, elle permet de stocké les bytes de couleur temporairement
 		
-		for (int x = 0; x < w; x++){ //permet de remplir le buffer par les pixels
-			for (int y = 0; y<h; y++){
+		for (int y= 0; y < w; y++){ //permet de remplir le buffer par les pixels
+			for (int x = 0; x<h; x++){
 				int i = pixels[x + y *w]; 
 				buffer.put((byte) ((i >> 16) & 0xFF)); //R --> on va chercher dans les pixels, un multiple de 16 (>> = multiple)
 				buffer.put((byte) ((i >> 8) & 0xFF)); //G

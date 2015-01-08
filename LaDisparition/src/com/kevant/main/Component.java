@@ -70,6 +70,7 @@ public class Component {
 				width = Display.getWidth() / scale; //rend dynamique la largeur
 				height = Display.getHeight() / scale; //rend dynamique la hauteur
 				// "KISS" grâce à OpenGL sans pour rendre la fenetre dynamique, difficile ! 
+				//pour rendre la fenetre redimmensionnable
 				
 				
 				tick = false;
