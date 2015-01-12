@@ -13,7 +13,7 @@ public class Tile { //tuile du jeu pour pouvoir structurer notre niveau
 	boolean hasTileSet = false;
 	public int size = 16; //taille des tuiles
 	public int halfSize = size/2;//taille de la texture
-	public int [] tileSprite;// = new int  []{1,1,1,1,1,1,1,1};
+	public int [] tileSprite  = new int  [8];
 	
 	
 	float [] color = new float []{1,1,1,1};
@@ -29,7 +29,7 @@ public class Tile { //tuile du jeu pour pouvoir structurer notre niveau
 		this.x = x;
 		this.y = y;
 		this.tile = tile;
-		tileSprite = new int [8];
+		//tileSprite = new int [8];
 		
 		if (tile == Tiles.SOLID_MUR) {
 			xo = 0;//couleur des couloirs
@@ -40,14 +40,79 @@ public class Tile { //tuile du jeu pour pouvoir structurer notre niveau
 			xo = 3;
 			yo = 2;//couleur des murs
 		}
+		if (hasTileSet) tileSprite = new int  []{1,1,1,1,1,1,1,1};
+			
 		//color = new float []{random.nextFloat(),random.nextFloat(),random.nextFloat(),1}; //donner une couleur aleatoire lorsqu'on afficher des toiles au hasard
 	}
 	
 	public void setTiles(boolean vr,boolean vl,boolean vd,boolean vu,boolean vur,boolean vul,boolean vdr,boolean vdl){
-		if (hasTileSet)return;
+		if (!hasTileSet)return;
+		if (vl) {
+			tileSprite[0] = 0;
+			tileSprite[1] = 1;
+			tileSprite[6] = 0;
+			tileSprite[7] = 1;
+			}
+			if (vr) {
+			tileSprite[2] = 2;
+			tileSprite[3] = 1;
+			tileSprite[4] = 2;
+			tileSprite[5] = 1;
+			}
+			if (vu) {
+			tileSprite[0] = 1;
+			tileSprite[1] = 0;
+			tileSprite[2] = 1;
+			tileSprite[3] = 0;
+			if (vr) { tileSprite[2] = 2; tileSprite[3] = 0;
+			}
+			if (vl) { tileSprite[0] = 0; tileSprite[1] = 0;
+			}
+			}
+			if (vd) {
+			tileSprite[4] = 1;
+			tileSprite[5] = 2;
+			tileSprite[6] = 1;
+			tileSprite[7] = 2;
+			if (vr) { tileSprite[4] = 2; tileSprite[5] = 2;
+			}
+			if (vl) { tileSprite[6] = 0; tileSprite[7] = 2;
+			}
+			}
+
+			if (vd && vr) {
+			tileSprite[4] = 2;
+			tileSprite[5] = 2;
+			}
+			if (vd && vl) {
+			tileSprite[6] = 0;
+			tileSprite[7] = 2;
+			}
+
+			if (vur && !vu && !vr) {
+			tileSprite[2] = 3;
+			tileSprite[3] = 1;
+			}
+			if (vdr && !vd && !vr) {
+			tileSprite[4] = 3;
+			tileSprite[5] = 0;
+			}
+			if (vul && !vu && !vl) {
+			tileSprite[0] = 4;
+			tileSprite[1] = 1;
+			}
+			if (vdl && !vd && !vl) {
+			tileSprite[6] = 4;
+			tileSprite[7] = 0;
+			
+			
+		}
+		
 	}
 	
 	public void render(){
+		
+		
 		Texture.tiles.bind();
 			glBegin(GL_QUADS);
 				Renderer.quadData(x*size, y*size, halfSize, halfSize, color, xo + tileSprite[0], yo + tileSprite[1]); //les tuiles sont des carrées qu'on rend

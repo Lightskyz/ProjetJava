@@ -1,7 +1,11 @@
 package com.kevant.main.game.level;
 
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.imageio.ImageIO;
 
 import com.kevant.main.game.level.tiles.Tile;
 import com.kevant.main.game.level.tiles.Tile.Tiles;
@@ -15,12 +19,40 @@ public class Level {
 	Tile [][] bgTile;//bg : background -> fond d'ecran de notre jeu
 	
 	public Level(int width, int height) { //le level prend en argument la hauteur et la largeur de la fenetre
-		this.width = width;
-		this.height = height;
+		
+		loadLevel ("level_dispa");
+	}
+	
+	public void loadLevel (String name) {
+		int [] pixels; //on fait un tableau de pixels de cette image
+		BufferedImage image = null;//puis on va la chercher/recuperer
+		try{
+		image = ImageIO.read(Level.class.getResource("/levels/" + name + ".png"));
+		} catch (IOException e){
+			e.printStackTrace();
+		}
+		width = image.getWidth();
+		height = image.getHeight();
+		pixels = new int [width * height];
+		image.getRGB(0, 0, width, height, pixels, 0, width);
+		
 		solidTile = new Tile [width] [height];
 		bgTile = new Tile [width] [height];
 		
-		
+		for (int x = 0; x < width; x++){
+			for (int y = 0; y < height; y++){
+				if (pixels [x + y * width] == 0xFFffffff){//[x + y * width] nous permet de naviguer dans l'image, ici on met une condition quand l'image est blanche
+					solidTile[x][y]=new Tile (x,y, Tiles.SOLID_MUR);//si l'image est blanche alors mettre la texture du mur
+				}
+				if (pixels [x + y * width] == 0xFF000000){//[x + y * width] nous permet de naviguer dans l'image, ici on met une condition quand l'image est blanche
+					bgTile[x][y]=new Tile (x,y, Tiles.BG_COULOIR);//si l'image est blanche alors mettre la texture du mur
+				}
+			if (	pixels[x + y * width] == 0xFF4157a7 ||
+					pixels[x + y * width] == 0xFFee1f34){
+				bgTile[x][y]=new Tile (x,y, Tiles.BG_COULOIR);
+				}
+			}
+		}
 		setTiles();
 	}
 	
@@ -68,13 +100,16 @@ public class Level {
 				if (solidTile[x][y] != null){
 					solidTile[x][y].setTiles(vr, vl, vd, vu, vur, vul, vdr, vdl);
 				}
+				addTiles (x,y);
 			}
 		}
-		
-		for (int x = 0; x < width; x++){
+	}
+		/*for (int x = 0; x < width; x++){
 			for (int y = 0; y < height; y++){
+				if (solidTile[x][y] != null){
 				tiles.add(solidTile[x][y]);
-				tiles.add(bgTile[x][y]);
+				//tiles.add(bgTile[x][y]);
+				}*/
 				
 		
 				/*	if(Math.random() >0.8f){ //génération aléatoire des tiles pour avoir des niveaux différents à chaque fois !
@@ -82,14 +117,19 @@ public class Level {
 				}
 				if (Math.random() > 0.95f){
 				tiles.add(new Tile(x,y, Tiles.MUR));
-			} */
+			} 
 				
 		} 
-	}
-	}
+	}*/
+	
 	
 	public void addTiles(int x, int y){
-		
+		if (solidTile[x][y] != null){
+			tiles.add(solidTile[x][y]);
+			}
+		else if(bgTile[x][y] != null) {
+			tiles.add(bgTile[x][y]);
+		}
 	}
 	
 	public void init() {
