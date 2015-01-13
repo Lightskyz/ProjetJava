@@ -1,25 +1,49 @@
 package com.kevant.main.game;
 
-import com.kevant.main.Component;
+import org.lwjgl.opengl.GL11;
+
 import com.kevant.main.game.level.Level;
 
 public class Game { // classe où on va s'occuper uniquement du Gameplay
 	
 	Level level;
 	
+	public static float xScroll, yScroll;
+	
 	public Game() {
-		level = new Level (Component.width / 16, Component.height / 16);
+		level = new Level (64,64);
+		xScroll = level.getBounds(0);
+		yScroll = level.getBounds(1);
+	}
+	
+	public void translateView(float xa, float ya){
+		if (xScroll > level.getBounds(0) || xScroll < level.getBounds(2)
+				|| yScroll > level.getBounds(1) || yScroll < level.getBounds(3)){
+			return;
+		}
+			xScroll += xa;
+			yScroll += ya;
 	}
 	
 	public void init() {
 		level.init();
 	}
 	
+	
+	float xa = 1, ya = 1;
 	public void update(){
+		if (xScroll == level.getBounds(0) || xScroll == level.getBounds(2)){
+			xa = -xa;
+		}
+		if (yScroll == level.getBounds(0) || yScroll == level.getBounds(2)){
+			ya = -ya;
+		}
+		translateView(xa, ya);
 		level.update();
 	}
 	
 	public void render() {
+		GL11.glTranslatef(xScroll, yScroll, 0);
 		level.render();
 	}
 	

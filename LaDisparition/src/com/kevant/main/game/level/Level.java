@@ -7,6 +7,9 @@ import java.util.List;
 
 import javax.imageio.ImageIO;
 
+import org.lwjgl.opengl.Display;
+
+import com.kevant.main.Component;
 import com.kevant.main.game.level.tiles.Tile;
 import com.kevant.main.game.level.tiles.Tile.Tiles;
 
@@ -17,6 +20,8 @@ public class Level {
 	List<Tile> tiles = new ArrayList<Tile>(); //notre level est un tableau de tile (tuile)
 	Tile [][] solidTile;//tuiles solides (mur)
 	Tile [][] bgTile;//bg : background -> fond d'ecran de notre jeu
+	
+	private int [] bounds = new int [4];//les 4 cotes de notre ecran
 	
 	public Level(int width, int height) { //le level prend en argument la hauteur et la largeur de la fenetre
 		
@@ -33,6 +38,15 @@ public class Level {
 		}
 		width = image.getWidth();
 		height = image.getHeight();
+		
+		bounds[0]=-16;
+		bounds[1]=-16;
+		bounds[2]=-width*16 + 16 + Display.getWidth() / Component.scale;
+		bounds[3]=-height*16 + 16 + Display.getHeight() / Component.scale;
+		
+		
+		
+		
 		pixels = new int [width * height];
 		image.getRGB(0, 0, width, height, pixels, 0, width);
 		
@@ -51,6 +65,8 @@ public class Level {
 					pixels[x + y * width] == 0xFFee1f34){
 				bgTile[x][y]=new Tile (x,y, Tiles.BG_COULOIR);
 				}
+			
+			// Si cela marché ne pas oublier aussi les lampes !
 			}
 		}
 		setTiles();
@@ -110,8 +126,6 @@ public class Level {
 				tiles.add(solidTile[x][y]);
 				//tiles.add(bgTile[x][y]);
 				}*/
-				
-		
 				/*	if(Math.random() >0.8f){ //génération aléatoire des tiles pour avoir des niveaux différents à chaque fois !
 					tiles.add(new Tile(x,y, Tiles.COULOIR));
 				}
@@ -121,7 +135,6 @@ public class Level {
 				
 		} 
 	}*/
-	
 	
 	public void addTiles(int x, int y){
 		if (solidTile[x][y] != null){
@@ -146,5 +159,8 @@ public class Level {
 		}
 	}
 	
+	public int getBounds(int index){
+		return bounds[index];
+	}
 
 }

@@ -9,10 +9,6 @@ import org.lwjgl.util.glu.GLU;
 
 import com.kevant.main.game.Game;
 
-
-
-
-
 public class Component {
 
 		public boolean running = false; //booleen qui nous permet de créer notre boucle
