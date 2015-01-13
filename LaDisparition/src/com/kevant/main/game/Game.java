@@ -16,18 +16,22 @@ public class Game { // classe où on va s'occuper uniquement du Gameplay
 		yScroll = level.getBounds(1);
 	}
 	
-	public void translateView(float xa, float ya){
-		if (xScroll > level.getBounds(0) || xScroll < level.getBounds(2)
-				|| yScroll > level.getBounds(1) || yScroll < level.getBounds(3)){
-			return;
-		}
-			xScroll += xa;
-			yScroll += ya;
-	}
 	
 	public void init() {
 		level.init();
 	}
+	
+	public void translateView(float xa, float ya){
+		xScroll = xa;
+		yScroll = ya;
+		if (xScroll > level.getBounds(0))xScroll = level.getBounds(0);
+		if	(xScroll < level.getBounds(2)) xScroll = level.getBounds(2);
+		if	(yScroll > level.getBounds(1)) yScroll = level.getBounds(1);
+		if  (yScroll < level.getBounds(3)) yScroll = level.getBounds(3);
+			
+		}
+	
+
 	
 	
 	float xa = 1, ya = 1;

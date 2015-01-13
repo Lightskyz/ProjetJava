@@ -45,8 +45,6 @@ public class Level {
 		bounds[3]=-height*16 + 16 + Display.getHeight() / Component.scale;
 		
 		
-		
-		
 		pixels = new int [width * height];
 		image.getRGB(0, 0, width, height, pixels, 0, width);
 		
@@ -61,7 +59,7 @@ public class Level {
 				if (pixels [x + y * width] == 0xFF000000){//[x + y * width] nous permet de naviguer dans l'image, ici on met une condition quand l'image est blanche
 					bgTile[x][y]=new Tile (x,y, Tiles.BG_COULOIR);//si l'image est blanche alors mettre la texture du mur
 				}
-			if (	pixels[x + y * width] == 0xFF4157a7 ||
+			if (	pixels[x + y * width] == 0xFF4157a7 || //couleur de spawn du garde et du joueur
 					pixels[x + y * width] == 0xFFee1f34){
 				bgTile[x][y]=new Tile (x,y, Tiles.BG_COULOIR);
 				}

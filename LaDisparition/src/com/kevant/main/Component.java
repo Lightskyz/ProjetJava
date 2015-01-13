@@ -9,6 +9,7 @@ import org.lwjgl.util.glu.GLU;
 
 import com.kevant.main.game.Game;
 
+
 public class Component {
 
 		public boolean running = false; //booleen qui nous permet de créer notre boucle
@@ -136,11 +137,11 @@ public class Component {
 				Display.setResizable(true); //pour pouvoir modifier la taille de la fenetre de jeu
 				Display.setFullscreen(false); //pour ne pas que la fenetre du jeu soit en plein ecran lorsqu'on l'ouvre
 				Display.setTitle(title); //affiche le titre de notre jeu
-				Display.create( ); //creation de notre fenetre mais elle se ferme aussi tôt, on doit créer une boucle pour qu'elle reste ouverte
+				Display.create(); //creation de notre fenetre mais elle se ferme aussi tôt, on doit créer une boucle pour qu'elle reste ouverte
 				
 				view2D(width, height);
 			} catch (LWJGLException e){
-				e.printStackTrace( );
+				e.printStackTrace();
 			}
 		}
 		
@@ -149,19 +150,22 @@ public class Component {
 			
 			
 			glMatrixMode(GL_PROJECTION); //définit les propriété de la vue de notre camera qui nous montre nos objets
-			glLoadIdentity( ); //remettre à jour nos entités		-- remettre à 0 les compteurs
+			glLoadIdentity(); //remettre à jour nos entités		-- remettre à 0 les compteurs
 			GLU.gluOrtho2D(0, width, height, 0);// la largeur à l'ecran
 			glMatrixMode(GL_MODELVIEW); //définit comme nos objets vont se transformer (translation, rotation, homothétie) - on retourne à la vue d'origine
-			glLoadIdentity( ); //reset les matrices
+			glLoadIdentity(); //reset les matrices
 			
 			glEnable(GL_TEXTURE_2D);
+			
+			glEnable(GL_BLEND);
+			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 			
 		}
 
 		
 		
 		
-		public static void main (String [ ]  args) {
+		public static void main (String []  args) {
 			Component main = new Component( ); //on ouvre la fenêtre
 			
 			main.start( ); //on appelle la boucle qui laisse ouvert la fenetre

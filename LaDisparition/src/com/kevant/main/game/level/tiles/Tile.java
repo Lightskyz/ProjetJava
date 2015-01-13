@@ -2,6 +2,8 @@ package com.kevant.main.game.level.tiles;
 
 //import java.util.Random;
 
+import com.kevant.main.Component;
+import com.kevant.main.game.Game;
 import com.kevant.main.graphics.Renderer;
 import com.kevant.main.graphics.Texture;
 import static org.lwjgl.opengl.GL11.*;
@@ -13,6 +15,7 @@ public class Tile { //tuile du jeu pour pouvoir structurer notre niveau
 	boolean hasTileSet = false;
 	public int size = 16; //taille des tuiles
 	public int halfSize = size/2;//taille de la texture
+	
 	public int [] tileSprite  = new int  [8];
 	
 	
@@ -22,7 +25,7 @@ public class Tile { //tuile du jeu pour pouvoir structurer notre niveau
 	Tiles tile;
 	
 	public enum Tiles { // 2 types de tuiles : couloir, mur
-		BG_COULOIR, SOLID_MUR
+		SOLID_MUR, BG_COULOIR
 	}
 	
 	public Tile(int x, int y, Tiles tile){
@@ -111,7 +114,13 @@ public class Tile { //tuile du jeu pour pouvoir structurer notre niveau
 	}
 	
 	public void render(){
+		float x0 = x + Game.xScroll / 16;
+		float y0 = y + Game.yScroll / 16;
 		
+		float x1 = x+ 1 + Game.xScroll/16;
+		float y1 = y + 1 + Game.yScroll/16;
+		
+		if (x1 < 0 || y1 < 0 || x0 > Component.width/16 || y0 > Component.height/16) return;
 		
 		Texture.tiles.bind();
 			glBegin(GL_QUADS);
