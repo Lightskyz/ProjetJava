@@ -4,7 +4,7 @@ import java.awt.Color;
 public class Map {
 
 	public int [][] map; //ma mape sera un tableau de tableau --> une grille composé de Tiles
-	
+		
 	public Map(){ //constructeur de ma classe -- je définis les Tiles de ma map
 		map = new int[15][7];
 		
