@@ -15,9 +15,9 @@ public class Game {
 	
 	
 public static void main(String[] args) throws InterruptedException { //throws InterruptedException necessaire pour "Thread"
-		StdDraw.setCanvasSize(X_MAX * (scale +1), Y_MAX * (scale +1));
-		StdDraw.setXscale(0, X_MAX + WIDTH);
-		StdDraw.setYscale(0, Y_MAX );
+		StdDraw.setCanvasSize(X_MAX * (scale +1), Y_MAX * (scale +1)); //permet de modifier la taille de la fenetre
+		StdDraw.setXscale(0, X_MAX + WIDTH); //permet de définir la taille de notre map (suivant X)
+		StdDraw.setYscale(0, Y_MAX );//permet de definir la taille de notre map (suivant Y)
 		
 		map = new Map ();
 		

@@ -145,7 +145,6 @@ public class Map {
 		
 	}
 	
-	
 	public void drawMap(){//je cre la methode qui permet de dessiner ma map
 		for (int i = 0; i < map.length; i++){ //double boucle qui permet de parcourir ma map (i dfinit les coordonnes en x et j les coordonnes en y)
 			for (int j=0; j< map[i].length; j++){
