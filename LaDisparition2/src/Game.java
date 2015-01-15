@@ -48,19 +48,7 @@ public class Game {
 		
 
 		}
-	
-
-/* public void eteindre (Map map1){
-		if (StdDraw.isKeyPressed(KeyEvent.VK_SPACE)){
-			//Je declare que si j'appuie sur espace alors le boolean devient "vrai" et donc la map devient noir
-			
-			Map.espace = true;
-			map.switchOff();
-		}
-	} */
-	
-	
-	
+		
 public static void move1 (Player player2){
 		int versX = player2.getX();// je prend en memoire la case ou je vais suivant x
 		int versY = player2.getY(); // idem suivant y

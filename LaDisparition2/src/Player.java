@@ -2,12 +2,13 @@ import java.awt.Color;
 
 
 public class Player {
-	private int x; //coordonnŽe de mon joueur suivant x
-	private int y;//coordonnŽe suivant y
+	private int x; //coordonnï¿½e de mon joueur suivant x
+	private int y;//coordonnï¿½e suivant y
 	
 	public Player (int x, int y){//constructeur de ma classe Player
 		this.x = x;
 		this.y = y;
+		
 	}
 
 	//mes "getteur"
