@@ -3,9 +3,9 @@ import java.awt.Color;
 
 public class Map {
 
-	public static int [][] map; //ma mape sera un tableau de tableau --> une grille composŽ de Tiles
+	public static int [][] map; //ma mape sera un tableau de tableau --> une grille composï¿½ de Tiles
 			
-	public Map(){ //constructeur de ma classe -- je dŽfinis les Tiles de ma map
+	public Map(){ //constructeur de ma classe -- je dï¿½finis les Tiles de ma map
 		map = new int[17][9];
 		
 		//premiere colonne => limite de la carte a gauche !
@@ -38,17 +38,17 @@ public class Map {
 		map[2][4]=0;
 		map[2][5]=0;
 		map[2][6]=0;
-		map[2][7]=1;
+		map[2][7]=6;
 		map[2][8]=4;
 		
 		//4
 		map[3][0]=4;
 		map[3][1]=1;
 		map[3][2]=1;
-		map[3][3]=1;
+		map[3][3]=6;
 		map[3][4]=2;
-		map[3][5]=1;
-		map[3][6]=1;
+		map[3][5]=6;
+		map[3][6]=6;
 		map[3][7]=2;
 		map[3][8]=4;
 		
@@ -60,12 +60,12 @@ public class Map {
 		map[4][4]=0;
 		map[4][5]=0;
 		map[4][6]=0;
-		map[4][7]=1;
+		map[4][7]=6;
 		map[4][8]=4;
 		
 		//6
 		map[5][0]=4;
-		map[5][1]=1;
+		map[5][1]=6;
 		map[5][2]=1;
 		map[5][3]=1;
 		map[5][4]=1;
@@ -79,7 +79,7 @@ public class Map {
 		map[6][1]=2;
 		map[6][2]=0;
 		map[6][3]=0;
-		map[6][4]=1;
+		map[6][4]=6;
 		map[6][5]=0;
 		map[6][6]=0;
 		map[6][7]=0;
@@ -87,11 +87,11 @@ public class Map {
 		
 		//8
 		map[7][0]=4;
-		map[7][1]=1;
+		map[7][1]=6;
 		map[7][2]=1;
-		map[7][3]=1;
+		map[7][3]=6;
 		map[7][4]=2;
-		map[7][5]=1;
+		map[7][5]=6;
 		map[7][6]=1;
 		map[7][7]=1;
 		map[7][8]=4;
@@ -101,7 +101,7 @@ public class Map {
 		map[8][1]=0;
 		map[8][2]=0;
 		map[8][3]=0;
-		map[8][4]=1;
+		map[8][4]=6;
 		map[8][5]=0;
 		map[8][6]=1;
 		map[8][7]=0;
@@ -112,9 +112,9 @@ public class Map {
 		map[9][1]=1;
 		map[9][2]=1;
 		map[9][3]=1;
-		map[9][4]=1;
+		map[9][4]=6;
 		map[9][5]=2;
-		map[9][6]=1;
+		map[9][6]=6;
 		map[9][7]=1;
 		map[9][8]=4;
 		
@@ -124,7 +124,7 @@ public class Map {
 		map[10][2]=0;
 		map[10][3]=0;
 		map[10][4]=0;
-		map[10][5]=1;
+		map[10][5]=6;
 		map[10][6]=0;
 		map[10][7]=0;
 		map[10][8]=4;
@@ -184,7 +184,7 @@ public class Map {
 		map[15][7]=1;
 		map[15][8]=4;
 		
-		//17eme colonne --> limite de la carte (ˆ droite)
+		//17eme colonne --> limite de la carte (ï¿½ droite)
 		map[16][0]=4;
 		map[16][1]=4;
 		map[16][2]=4;
@@ -199,16 +199,20 @@ public class Map {
 	
 
 	
-	public void drawMap(){//je crŽe la methode qui permet de dessiner ma map
-		for (int i = 0; i < map.length; i++){ //double boucle qui permet de parcourir ma map (i dŽfinit les coordonnŽes en x et j les coordonnŽes en y)
+	public void drawMap(){//je crï¿½e la methode qui permet de dessiner ma map
+
+		for (int i = 0; i < map.length; i++){ //double boucle qui permet de parcourir ma map (i dï¿½finit les coordonnï¿½es en x et j les coordonnï¿½es en y)
 			for (int j=0; j< map[i].length; j++){
-				/*Je dŽfinit les conditions pour diffŽrencier chaque case 
+				/*Je dï¿½finit les conditions pour diffï¿½rencier chaque case 
 				 * => si la case = 0 alors la case sera noir (mur)
 				 * => si la case = 1 alors la case sera grise (couloir)
 				 * => si la case = 2 alors la case sera jaune (lumiere)
 				 * => si la case = 3 alors la case sera bleue (ordinateur)
 				 * 
-				 * => si la case = 4 alors c'est la limitŽ de la carte -- couleur verte // 2eme possibilitŽ pour delimiter la carte, car le fichier ne veut pas prendre en compte les murs et les limites en meme temps, par contre elle accepte les deux en meme temps...
+				 * => si la case = 4 alors c'est la limitï¿½ de la carte -- couleur verte // 2eme possibilitï¿½ pour delimiter la carte, car le fichier ne veut pas prendre en compte les murs et les limites en meme temps, par contre elle accepte les deux en meme temps...
+				 * 
+				 * => si les cases sont egales Ã  5 alors les noircirs si on le demande
+				 * => les cases de couloir autour de la lumiere doivent rester eclairer lorsqu'on eteint la lumiere
 				 */
 				
 				/**
@@ -223,26 +227,49 @@ public class Map {
 				int y = Game.Y_MAX - (int)Game.WIDTH *j;
 				
 				if (map[i][j] == 0){ 
-					StdDraw.setPenColor(Color.BLACK); //permet de definir la couleur du carrŽ
-					StdDraw.filledSquare(x,y,r); //on dessine un carrŽ dans la case
+					StdDraw.setPenColor(Color.BLACK); //permet de definir la couleur du carrï¿½
+					StdDraw.filledSquare(x,y,r); //on dessine un carrï¿½ dans la case
 				}
 				if (map[i][j] == 1){ 
-					StdDraw.setPenColor(Color.GRAY); //permet de definir la couleur du carrŽ
-					StdDraw.filledSquare(x,y,r); //on dessine un carrŽ dans la case
+					StdDraw.setPenColor(Color.GRAY); //permet de definir la couleur du carrï¿½
+					StdDraw.filledSquare(x,y,r); //on dessine un carrï¿½ dans la case
 				}
 				if (map[i][j] == 2){ 
-					StdDraw.setPenColor(Color.YELLOW); //permet de definir la couleur du carrŽ
-					StdDraw.filledSquare(x,y,r); //on dessine un carrŽ dans la case
+					StdDraw.setPenColor(Color.YELLOW); //permet de definir la couleur du carrï¿½
+					StdDraw.filledSquare(x,y,r); //on dessine un carrï¿½ dans la case
 				}
 				if (map[i][j] == 3){ 
-					StdDraw.setPenColor(Color.BLUE); //permet de definir la couleur du carrŽ
-					StdDraw.filledSquare(x,y,r); //on dessine un carrŽ dans la case
+					StdDraw.setPenColor(Color.BLUE); //permet de definir la couleur du carrï¿½
+					StdDraw.filledSquare(x,y,r); //on dessine un carrï¿½ dans la case
 				}
 				if (map[i][j] == 4){ 
-					StdDraw.setPenColor(Color.GREEN); //permet de definir la couleur du carrŽ
+					StdDraw.setPenColor(Color.GREEN); //permet de definir la couleur du carrï¿½
+					StdDraw.filledSquare(x, y, r);
+				}
+				if (map[i][j] == 5){ 
+					StdDraw.setPenColor(Color.BLACK); //permet de definir la couleur du carrï¿½
+					StdDraw.filledSquare(x, y, r);
+				}
+				if (map[i][j] == 6){ 
+					StdDraw.setPenColor(Color.GRAY); //permet de definir la couleur du carrï¿½
 					StdDraw.filledSquare(x, y, r);
 				}
 			}
 		}
 	}
+
+
+public void switchOff(){
+	
+	//donner une condition pour que Ã§a se lance (boolean ?)  
+	//De base c'est toujours "FAUX" et quand je clique sur la touche je passe en vrai et je lance le programme !!
+	
+	for (int i = 0; i < map.length; i++){ //double boucle qui permet de parcourir ma map (i dï¿½finit les coordonnï¿½es en x et j les coordonnï¿½es en y)
+		for (int j=0; j< map[i].length; j++){
+			if (map[i][j] == 1){//passÃ© toutes les valeurs de 1 Ã  0 (toutes les cases grises, deviennent noir, or en plus de devenir noir elle recupere aussi les caracteristiques du couloir (ne pas se deplacer)
+				map[i][j] = 5;
+					}
+		}
+	} 
+}
 }

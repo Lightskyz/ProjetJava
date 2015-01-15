@@ -50,6 +50,12 @@ public class Game {
 		}
 	
 
+public static void eteindre (Map map1){
+		if (StdDraw.isKeyPressed(KeyEvent.VK_Z)){
+			map.switchOff();
+		}
+	} 
+	
 public static void move1 (Player player2){
 		int versX = player2.getX();// je prend en memoire la case ou je vais suivant x
 		int versY = player2.getY(); // idem suivant y
@@ -94,6 +100,7 @@ public static void main(String[] args) throws InterruptedException { //throws In
 		player2 = new Player (15,1);
 		timer = new Timer();
 		
+		
 		while(true){//boucle infinie
 			timer.start(); //on lance le chrono
 			
@@ -102,6 +109,9 @@ public static void main(String[] args) throws InterruptedException { //throws In
 			map.drawMap(); //je dessine la map
 			player1.drawPlayer(); //je dessine le joueur par dessus la carte
 			player2.drawPlayer1();
+			
+			map.switchOff();
+			
 			StdDraw.show(0);;//permet d'afficher des animations où 0 = le nombre de milliseconde
 			
 			timer.stop();
