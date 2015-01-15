@@ -1,11 +1,13 @@
 import java.awt.Color;
+//import java.awt.event.KeyEvent;
 
 
 public class Map {
 
-	public static int [][] map; //ma mape sera un tableau de tableau --> une grille compos� de Tiles
-			
-	public Map(){ //constructeur de ma classe -- je d�finis les Tiles de ma map
+	protected static int [][] map; //ma mape sera un tableau de tableau --> une grille compos� de Tiles
+	//public static boolean espace = false;
+	
+ 	public Map(){ //constructeur de ma classe -- je d�finis les Tiles de ma map
 		map = new int[17][9];
 		
 		//premiere colonne => limite de la carte a gauche !
@@ -197,8 +199,6 @@ public class Map {
 		
 	}
 	
-
-	
 	public void drawMap(){//je cr�e la methode qui permet de dessiner ma map
 
 		for (int i = 0; i < map.length; i++){ //double boucle qui permet de parcourir ma map (i d�finit les coordonn�es en x et j les coordonn�es en y)
@@ -259,9 +259,10 @@ public class Map {
 	}
 
 
-public void switchOff(){
-	
-	//donner une condition pour que ça se lance (boolean ?)  
+	public void switchOff(){
+		 //est ce que je met cette fonction ici ou dans game ?
+		//Je declare que si j'appuie sur espace alors le boolean devient "vrai" et donc la map devient noir
+		//donner une condition pour que ça se lance (boolean ?)  
 	//De base c'est toujours "FAUX" et quand je clique sur la touche je passe en vrai et je lance le programme !!
 	
 	for (int i = 0; i < map.length; i++){ //double boucle qui permet de parcourir ma map (i d�finit les coordonn�es en x et j les coordonn�es en y)
@@ -270,6 +271,7 @@ public void switchOff(){
 				map[i][j] = 5;
 					}
 		}
+	}
 	} 
 }
-}
+

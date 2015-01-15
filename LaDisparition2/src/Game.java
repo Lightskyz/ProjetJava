@@ -50,11 +50,16 @@ public class Game {
 		}
 	
 
-public static void eteindre (Map map1){
-		if (StdDraw.isKeyPressed(KeyEvent.VK_Z)){
+/* public void eteindre (Map map1){
+		if (StdDraw.isKeyPressed(KeyEvent.VK_SPACE)){
+			//Je declare que si j'appuie sur espace alors le boolean devient "vrai" et donc la map devient noir
+			
+			Map.espace = true;
 			map.switchOff();
 		}
-	} 
+	} */
+	
+	
 	
 public static void move1 (Player player2){
 		int versX = player2.getX();// je prend en memoire la case ou je vais suivant x
@@ -101,6 +106,7 @@ public static void main(String[] args) throws InterruptedException { //throws In
 		timer = new Timer();
 		
 		
+		
 		while(true){//boucle infinie
 			timer.start(); //on lance le chrono
 			
@@ -110,14 +116,16 @@ public static void main(String[] args) throws InterruptedException { //throws In
 			player1.drawPlayer(); //je dessine le joueur par dessus la carte
 			player2.drawPlayer1();
 			
+			if (StdDraw.isKeyPressed(KeyEvent.VK_SPACE)){
 			map.switchOff();
+			}
 			
 			StdDraw.show(0);;//permet d'afficher des animations où 0 = le nombre de milliseconde
 			
 			timer.stop();
 			
-			long time = 200 - timer.getElapsedTime();  //sensibilité, temps de reponse à partir du moment ou on lui ordonne une action
-			if (time < 200){
+			long time = 190 - timer.getElapsedTime();  //sensibilité, temps de reponse à partir du moment ou on lui ordonne une action
+			if (time < 190){
 				Thread.sleep(time); //pause || thread = fill
 			}
 		}
