@@ -46,3 +46,4 @@ public void drawPlayer(){ //methode qui me permet de dessiner mon joueur
 
 
 }
+

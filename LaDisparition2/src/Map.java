@@ -3,8 +3,8 @@ import java.awt.Color;
 
 public class Map {
 
-	public int [][] map; //ma mape sera un tableau de tableau --> une grille composé de Tiles
-		
+	public static int [][] map; //ma mape sera un tableau de tableau --> une grille composé de Tiles
+			
 	public Map(){ //constructeur de ma classe -- je définis les Tiles de ma map
 		map = new int[15][7];
 		
@@ -144,6 +144,8 @@ public class Map {
 		map[14][6]=1;
 		
 	}
+	
+
 	
 	public void drawMap(){//je crée la methode qui permet de dessiner ma map
 		for (int i = 0; i < map.length; i++){ //double boucle qui permet de parcourir ma map (i définit les coordonnées en x et j les coordonnées en y)
