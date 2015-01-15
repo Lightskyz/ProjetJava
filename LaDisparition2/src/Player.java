@@ -43,7 +43,21 @@ public void drawPlayer(){ //methode qui me permet de dessiner mon joueur
 	
 	}
 
-
+public void drawPlayer1(){ //methode qui me permet de dessiner mon joueur
+	StdDraw.setPenColor(Color.PINK);
+	
+	int x = (int)Game.WIDTH * getX();
+	int y = Game.Y_MAX - (int)Game.WIDTH * getY();
+	//int r = (int)Game.WIDTH / 2;
+	
+	
+	 StdDraw.picture(x,y,"perso2.gif");
+	 
+	 
+	
+	//StdDraw.filledCircle(x, y, r);
+	
+	} 
 
 }
 
