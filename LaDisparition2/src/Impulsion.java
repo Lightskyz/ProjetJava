@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 
 
 public class Impulsion {
@@ -6,7 +7,7 @@ public class Impulsion {
 	private int y;
 	
 	public Impulsion(int x, int y){
-		this.x = x;
+		this.x = x; //ce x c'est la position du joueur qui tire
 		this.y = y;
 		}
 	
@@ -35,7 +36,24 @@ public class Impulsion {
 		StdDraw.filledCircle(x, y, r); // mon impulsion est une boule bleue
 		}
 	
-	
+	public static void move (Impulsion pulse){
+		int nextX = pulse.getX();// je prend en memoire la case ou je vais suivant x
+		int nextY = pulse.getY(); // idem suivant y
+		
+		
+		if (StdDraw.isKeyPressed(KeyEvent.VK_G)){
+			nextY = nextY -1;
+		}
+		
+		if (nextX >=0 && nextX <= Game.scale * Map.map[0].length)//je donne les limites de la map (horizontalement de part et d'autre de la map)
+			pulse.setX(nextX);
+		
+		
+		if (nextY >=0 && nextY < Map.map[0].length)//je donne les limites de la map (verticalement de part et d'autre de la map)
+			pulse.setY(nextY);
+		
+		
+	}
 	/* J'ai crée l'impulsion qui peut se deplacer sur la carte (get/set)
 	 * 
 	 * 			Lui mettre les conditions necessaires c'est à dire :

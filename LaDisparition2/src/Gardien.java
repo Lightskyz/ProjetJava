@@ -45,35 +45,35 @@ public class Gardien {
 		}
 
 	public static void move (Gardien player){
-		int versX = player.getX();// je prend en memoire la case ou je vais suivant x
-		int versY = player.getY(); // idem suivant y
+		int nextX = player.getX();// je prend en memoire la case ou je vais suivant x
+		int nextY = player.getY(); // idem suivant y
 		
 		
 		if (StdDraw.isKeyPressed(KeyEvent.VK_UP)){
-			versY = versY -1;
+			nextY = nextY -1;
 		}
 		if (StdDraw.isKeyPressed(KeyEvent.VK_DOWN)){
-			versY = versY +1;
+			nextY = nextY +1;
 		}
 		if (StdDraw.isKeyPressed(KeyEvent.VK_RIGHT)){
-			versX = versX +1;
+			nextX = nextX +1;
 		}
 		if (StdDraw.isKeyPressed(KeyEvent.VK_LEFT)){
-			versX = versX -1;
+			nextX = nextX -1;
 		}
 				
-		if(Map.map[versX][versY] == 0 || Map.map[versX][versY] == 3 || Map.map[versX][versY] == 4) //condition, si c'est un mur alors ne rien faire (pas de getteur, ni de setteur)
+		if(Map.map[nextX][nextY] == 0 || Map.map[nextX][nextY] == 3 || Map.map[nextX][nextY] == 4) //condition, si c'est un mur alors ne rien faire (pas de getteur, ni de setteur)
 			return;//ATTENTION ERREUR [versX][versY] position en direct --> une fois que je suis dans un mur a ne marche plus (comme prevu / or je veux delimitter les murs
 			
 			
 			//ERREUR ! Soit les murs soit les limites ! 
 				
-		if (versX >=0 && versX <= Game.scale * Map.map[0].length)//je donne les limites de la map (horizontalement de part et d'autre de la map)
-			player.setX(versX);
+		if (nextX >=0 && nextX <= Game.scale * Map.map[0].length)//je donne les limites de la map (horizontalement de part et d'autre de la map)
+			player.setX(nextX);
 		
 		
-		if (versY >=0 && versY < Map.map[0].length)//je donne les limites de la map (verticalement de part et d'autre de la map)
-			player.setY(versY);
+		if (nextY >=0 && nextY < Map.map[0].length)//je donne les limites de la map (verticalement de part et d'autre de la map)
+			player.setY(nextY);
 		
 
 		}
