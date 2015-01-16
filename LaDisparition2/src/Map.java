@@ -254,10 +254,17 @@ public class Map {
 					StdDraw.setPenColor(Color.GRAY); //permet de definir la couleur du carr�
 					StdDraw.filledSquare(x, y, r);
 				}
+				if (map[i][j] == 7){ 
+					StdDraw.setPenColor(Color.BLACK); //permet de definir la couleur du carr�
+					StdDraw.filledSquare(x, y, r);
+			}
+				if (map[i][j] == 8){ 
+					StdDraw.setPenColor(Color.ORANGE); //permet de definir la couleur du carr�
+					StdDraw.filledSquare(x, y, r);
+			}
 			}
 		}
 	}
-
 
 	public void switchOff(){
 		 //est ce que je met cette fonction ici ou dans game ?
@@ -270,11 +277,27 @@ public class Map {
 			if (map[i][j] == 1){//passé toutes les valeurs de 1 à 0 (toutes les cases grises, deviennent noir, or en plus de devenir noir elle recupere aussi les caracteristiques du couloir (ne pas se deplacer)
 				map[i][j] = 5;
 					}
-		
-				
-			
+			if(map[i][j] == 3){
+				map[i][j] = 7;
+				}
+			}
 		}
 	}
-	} 
+	
+	public void switchOn(){
+		for (int i = 0; i < map.length; i++){ //double boucle qui permet de parcourir ma map (i d�finit les coordonn�es en x et j les coordonn�es en y)
+			for (int j=0; j< map[i].length; j++){
+				if (map[i][j] == 5){//passé toutes les valeurs de 1 à 0 (toutes les cases grises, deviennent noir, or en plus de devenir noir elle recupere aussi les caracteristiques du couloir (ne pas se deplacer)
+					map[i][j] = 1;
+						}
+				if (map[i][j] == 7){//passé toutes les valeurs de 1 à 0 (toutes les cases grises, deviennent noir, or en plus de devenir noir elle recupere aussi les caracteristiques du couloir (ne pas se deplacer)
+					map[i][j] = 3;
+				}
+			}
+	}
+	}
+	
+	
+	
 }
 

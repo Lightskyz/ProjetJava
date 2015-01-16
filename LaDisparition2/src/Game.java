@@ -28,22 +28,33 @@ public class Game {
 		while(true){//boucle infinie
 			timer.start(); //on lance le chrono
 			
+			//deplacement
 			Infiltrant.movePlayer(infiltrant);
 			Gardien.movePlayer(gardien);
+		
+			//affichage
 			map.drawMap(); //je dessine la map
 			infiltrant.drawPlayer(); //je dessine le joueur par dessus la carte
 			gardien.drawPlayer();
 			
 			if (StdDraw.isKeyPressed(KeyEvent.VK_SPACE)){
-			map.switchOff();
+				
+				map.switchOff();
+			
 			}
+			else{
+				
+				map.switchOn();
+			}
+			
+			
 			
 			StdDraw.show(0);;//permet d'afficher des animations où 0 = le nombre de milliseconde
 			
 			timer.stop();
 			
-			long time = 300 - timer.getElapsedTime();  //sensibilité, temps de reponse à partir du moment ou on lui ordonne une action
-			if (time < 300){
+			long time = 250 - timer.getElapsedTime();  //sensibilité, temps de reponse à partir du moment ou on lui ordonne une action
+			if (time < 250){
 				Thread.sleep(time); //pause || thread = fill
 	}
 			}
