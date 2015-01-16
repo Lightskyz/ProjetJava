@@ -28,8 +28,6 @@ public class Infiltrant {
 			y = value;
 		}
 
-		private static Impulsion pulse;
-		
 		
 		
 		public void drawPlayer(){ //methode qui me permet de dessiner mon joueur
@@ -48,11 +46,8 @@ public class Infiltrant {
 		
 		}
 
-<<<<<<< HEAD
-	public static void movePlayer (Infiltrant player){
-=======
-	public static void move (Infiltrant player){
->>>>>>> 85f46cccf36c3ebecd33914062a81b35e4f5bdc8
+		public static void movePlayer (Infiltrant player){	
+
 		int nextX = player.getX();// je prend en memoire la case ou je vais suivant x
 		int nextY = player.getY(); // idem suivant y
 		
@@ -70,14 +65,10 @@ public class Infiltrant {
 			nextX = nextX -1;
 		}
 				
-<<<<<<< HEAD
+
 		if(Map.map[nextX][nextY] == 0  || Map.map[nextX][nextY] == 4) //condition, si c'est un mur alors ne rien faire (pas de getteur, ni de setteur)
 			return;//ATTENTION ERREUR [versX][versY] position en direct --> une fois que je suis dans un mur �a ne marche plus (comme prevu / or je veux delimitter les murs
-=======
-		if(Map.map[nextX][nextY] == 0 || Map.map[nextX][nextY] == 3 || Map.map[nextX][nextY] == 4) //condition, si c'est un mur alors ne rien faire (pas de getteur, ni de setteur)
-			return;//ATTENTION ERREUR [versX][versY] position en direct --> une fois que je suis dans un mur �a ne marche plus (comme prevu / or je veux delimitter les murs
->>>>>>> 85f46cccf36c3ebecd33914062a81b35e4f5bdc8
-			
+
 			
 			//ERREUR ! Soit les murs soit les limites ! 
 				
@@ -91,11 +82,8 @@ public class Infiltrant {
 
 		}
 
-	public void shootPlayer(){
-		pulse = new Impulsion(Infiltrant.x, Infiltrant.y); //l'impulsion est tiré à partir d'une position autour du joueur et bouge dans le sens de deplacement du joueur
+		public void shootPlayer(){
 		
-		Impulsion.drawPulse();
-		Impulsion.movePulse();
 		
 		
 	}
