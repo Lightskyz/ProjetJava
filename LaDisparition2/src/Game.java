@@ -28,8 +28,8 @@ public class Game {
 		while(true){//boucle infinie
 			timer.start(); //on lance le chrono
 			
-			Infiltrant.move(infiltrant);
-			Gardien.move(gardien);
+			Infiltrant.movePlayer(infiltrant);
+			Gardien.movePlayer(gardien);
 			map.drawMap(); //je dessine la map
 			infiltrant.drawPlayer(); //je dessine le joueur par dessus la carte
 			gardien.drawPlayer();
@@ -42,8 +42,8 @@ public class Game {
 			
 			timer.stop();
 			
-			long time = 190 - timer.getElapsedTime();  //sensibilité, temps de reponse à partir du moment ou on lui ordonne une action
-			if (time < 190){
+			long time = 300 - timer.getElapsedTime();  //sensibilité, temps de reponse à partir du moment ou on lui ordonne une action
+			if (time < 300){
 				Thread.sleep(time); //pause || thread = fill
 	}
 			}

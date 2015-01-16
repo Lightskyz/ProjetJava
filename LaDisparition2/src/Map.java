@@ -270,6 +270,9 @@ public class Map {
 			if (map[i][j] == 1){//passé toutes les valeurs de 1 à 0 (toutes les cases grises, deviennent noir, or en plus de devenir noir elle recupere aussi les caracteristiques du couloir (ne pas se deplacer)
 				map[i][j] = 5;
 					}
+		
+				
+			
 		}
 	}
 	} 

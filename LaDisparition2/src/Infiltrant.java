@@ -1,10 +1,11 @@
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 
+//Classe de mon infiltrant (la meme que Gardien sauf sa representation)
 
 public class Infiltrant {
-		private int x; //coordonnŽe de mon joueur suivant x
-		private int y;//coordonnŽe suivant y
+		private int x; //coordonnï¿½e de mon joueur suivant x
+		private int y;//coordonnï¿½e suivant y
 		
 		public Infiltrant (int x, int y){//constructeur de ma classe Player
 			this.x = x;
@@ -27,8 +28,11 @@ public class Infiltrant {
 			y = value;
 		}
 
-
-	public void drawPlayer(){ //methode qui me permet de dessiner mon joueur
+		private static Impulsion pulse;
+		
+		
+		
+		public void drawPlayer(){ //methode qui me permet de dessiner mon joueur
 		StdDraw.setPenColor(Color.PINK);
 		
 		int x = (int)Game.WIDTH * getX();
@@ -44,39 +48,46 @@ public class Infiltrant {
 		
 		}
 
-	public static void move (Infiltrant player){
-		int versX = player.getX();// je prend en memoire la case ou je vais suivant x
-		int versY = player.getY(); // idem suivant y
+	public static void movePlayer (Infiltrant player){
+		int nextX = player.getX();// je prend en memoire la case ou je vais suivant x
+		int nextY = player.getY(); // idem suivant y
 		
 		
 		if (StdDraw.isKeyPressed(KeyEvent.VK_Z)){
-			versY = versY -1;
+			nextY = nextY -1;
 		}
 		if (StdDraw.isKeyPressed(KeyEvent.VK_S)){
-			versY = versY +1;
+			nextY = nextY +1;
 		}
 		if (StdDraw.isKeyPressed(KeyEvent.VK_D)){
-			versX = versX +1;
+			nextX = nextX +1;
 		}
 		if (StdDraw.isKeyPressed(KeyEvent.VK_Q)){
-			versX = versX -1;
+			nextX = nextX -1;
 		}
 				
-		if(Map.map[versX][versY] == 0 || Map.map[versX][versY] == 3 || Map.map[versX][versY] == 4) //condition, si c'est un mur alors ne rien faire (pas de getteur, ni de setteur)
-			return;//ATTENTION ERREUR [versX][versY] position en direct --> une fois que je suis dans un mur a ne marche plus (comme prevu / or je veux delimitter les murs
+		if(Map.map[nextX][nextY] == 0  || Map.map[nextX][nextY] == 4) //condition, si c'est un mur alors ne rien faire (pas de getteur, ni de setteur)
+			return;//ATTENTION ERREUR [versX][versY] position en direct --> une fois que je suis dans un mur ï¿½a ne marche plus (comme prevu / or je veux delimitter les murs
 			
 			
 			//ERREUR ! Soit les murs soit les limites ! 
 				
-		if (versX >=0 && versX <= Game.scale * Map.map[0].length)//je donne les limites de la map (horizontalement de part et d'autre de la map)
-			player.setX(versX);
+		if (nextX >=0 && nextX <= Game.scale * Map.map[0].length)//je donne les limites de la map (horizontalement de part et d'autre de la map)
+			player.setX(nextX);
 		
 		
-		if (versY >=0 && versY < Map.map[0].length)//je donne les limites de la map (verticalement de part et d'autre de la map)
-			player.setY(versY);
+		if (nextY >=0 && nextY < Map.map[0].length)//je donne les limites de la map (verticalement de part et d'autre de la map)
+			player.setY(nextY);
 		
 
 		}
 
-	
+	public void shootPlayer(){
+		pulse = new Impulsion(Infiltrant.x, Infiltrant.y); //l'impulsion est tirÃ© Ã  partir d'une position autour du joueur et bouge dans le sens de deplacement du joueur
+		
+		Impulsion.drawPulse();
+		Impulsion.movePulse();
+		
+		
+	}
 }

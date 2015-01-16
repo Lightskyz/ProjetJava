@@ -1,10 +1,11 @@
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 
+//Classe de mon gardien (la meme que Infiltrant sauf sa representation)
 
 public class Gardien {
-		private int x; //coordonnŽe de mon joueur suivant x
-		private int y;//coordonnŽe suivant y
+		private int x; //coordonnï¿½e de mon joueur suivant x
+		private int y;//coordonnï¿½e suivant y
 		
 		public Gardien (int x, int y){//constructeur de ma classe Player
 			this.x = x;
@@ -44,36 +45,36 @@ public class Gardien {
 		
 		}
 
-	public static void move (Gardien player){
-		int versX = player.getX();// je prend en memoire la case ou je vais suivant x
-		int versY = player.getY(); // idem suivant y
+	public static void movePlayer (Gardien player){
+		int nextX = player.getX();// je prend en memoire la case ou je vais suivant x
+		int nextY= player.getY(); // idem suivant y
 		
 		
 		if (StdDraw.isKeyPressed(KeyEvent.VK_UP)){
-			versY = versY -1;
+			nextY = nextY -1;
 		}
 		if (StdDraw.isKeyPressed(KeyEvent.VK_DOWN)){
-			versY = versY +1;
+			nextY = nextY +1;
 		}
 		if (StdDraw.isKeyPressed(KeyEvent.VK_RIGHT)){
-			versX = versX +1;
+			nextX = nextX +1;
 		}
 		if (StdDraw.isKeyPressed(KeyEvent.VK_LEFT)){
-			versX = versX -1;
+			nextX = nextX -1;
 		}
 				
-		if(Map.map[versX][versY] == 0 || Map.map[versX][versY] == 3 || Map.map[versX][versY] == 4) //condition, si c'est un mur alors ne rien faire (pas de getteur, ni de setteur)
-			return;//ATTENTION ERREUR [versX][versY] position en direct --> une fois que je suis dans un mur a ne marche plus (comme prevu / or je veux delimitter les murs
+		if(Map.map[nextX][nextY] == 0 || Map.map[nextX][nextY] == 3 || Map.map[nextX][nextY] == 4) //condition, si c'est un mur alors ne rien faire (pas de getteur, ni de setteur)
+			return;//ATTENTION ERREUR [versX][versY] position en direct --> une fois que je suis dans un mur ï¿½a ne marche plus (comme prevu / or je veux delimitter les murs
 			
 			
 			//ERREUR ! Soit les murs soit les limites ! 
 				
-		if (versX >=0 && versX <= Game.scale * Map.map[0].length)//je donne les limites de la map (horizontalement de part et d'autre de la map)
-			player.setX(versX);
+		if (nextX >=0 && nextX <= Game.scale * Map.map[0].length)//je donne les limites de la map (horizontalement de part et d'autre de la map)
+			player.setX(nextX);
 		
 		
-		if (versY >=0 && versY < Map.map[0].length)//je donne les limites de la map (verticalement de part et d'autre de la map)
-			player.setY(versY);
+		if (nextY >=0 && nextY < Map.map[0].length)//je donne les limites de la map (verticalement de part et d'autre de la map)
+			player.setY(nextY);
 		
 
 		}

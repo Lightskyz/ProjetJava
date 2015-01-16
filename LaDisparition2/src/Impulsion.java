@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 
 
 public class Impulsion {
@@ -35,6 +36,26 @@ public class Impulsion {
 		StdDraw.filledCircle(x, y, r); // mon impulsion est une boule bleue
 		}
 	
+	
+		public void movePulse(Impulsion pulse){
+			int nextX = pulse.getX();
+			int nextY = pulse.getY();
+			
+			if (StdDraw.isKeyPressed(KeyEvent.VK_G)){
+				//implementer avec le temps pour que ça puisse avancer tout seul sans action
+				
+				nextY = nextY -1;
+				nextY = nextY +1;
+				nextX = nextX +1;
+				nextX = nextX -1;
+			}
+			
+			for (int i = nextX;i <nextX+4; nextX++){//portée de 4 cases suivant x
+				for (int j = nextY; j < nextY + 4; nextY ++){
+					
+				}
+			}
+		}
 	
 	/* J'ai crée l'impulsion qui peut se deplacer sur la carte (get/set)
 	 * 
