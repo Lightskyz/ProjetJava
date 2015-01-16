@@ -45,9 +45,15 @@ public class Gardien {
 		
 		}
 
+<<<<<<< HEAD
 	public static void movePlayer (Gardien player){
 		int nextX = player.getX();// je prend en memoire la case ou je vais suivant x
 		int nextY= player.getY(); // idem suivant y
+=======
+	public static void move (Gardien player){
+		int nextX = player.getX();// je prend en memoire la case ou je vais suivant x
+		int nextY = player.getY(); // idem suivant y
+>>>>>>> 85f46cccf36c3ebecd33914062a81b35e4f5bdc8
 		
 		
 		if (StdDraw.isKeyPressed(KeyEvent.VK_UP)){
@@ -64,7 +70,11 @@ public class Gardien {
 		}
 				
 		if(Map.map[nextX][nextY] == 0 || Map.map[nextX][nextY] == 3 || Map.map[nextX][nextY] == 4) //condition, si c'est un mur alors ne rien faire (pas de getteur, ni de setteur)
+<<<<<<< HEAD
 			return;//ATTENTION ERREUR [versX][versY] position en direct --> une fois que je suis dans un mur ï¿½a ne marche plus (comme prevu / or je veux delimitter les murs
+=======
+			return;//ATTENTION ERREUR [versX][versY] position en direct --> une fois que je suis dans un mur a ne marche plus (comme prevu / or je veux delimitter les murs
+>>>>>>> 85f46cccf36c3ebecd33914062a81b35e4f5bdc8
 			
 			
 			//ERREUR ! Soit les murs soit les limites ! 

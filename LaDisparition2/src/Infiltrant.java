@@ -48,7 +48,11 @@ public class Infiltrant {
 		
 		}
 
+<<<<<<< HEAD
 	public static void movePlayer (Infiltrant player){
+=======
+	public static void move (Infiltrant player){
+>>>>>>> 85f46cccf36c3ebecd33914062a81b35e4f5bdc8
 		int nextX = player.getX();// je prend en memoire la case ou je vais suivant x
 		int nextY = player.getY(); // idem suivant y
 		
@@ -66,8 +70,13 @@ public class Infiltrant {
 			nextX = nextX -1;
 		}
 				
+<<<<<<< HEAD
 		if(Map.map[nextX][nextY] == 0  || Map.map[nextX][nextY] == 4) //condition, si c'est un mur alors ne rien faire (pas de getteur, ni de setteur)
 			return;//ATTENTION ERREUR [versX][versY] position en direct --> une fois que je suis dans un mur ï¿½a ne marche plus (comme prevu / or je veux delimitter les murs
+=======
+		if(Map.map[nextX][nextY] == 0 || Map.map[nextX][nextY] == 3 || Map.map[nextX][nextY] == 4) //condition, si c'est un mur alors ne rien faire (pas de getteur, ni de setteur)
+			return;//ATTENTION ERREUR [versX][versY] position en direct --> une fois que je suis dans un mur a ne marche plus (comme prevu / or je veux delimitter les murs
+>>>>>>> 85f46cccf36c3ebecd33914062a81b35e4f5bdc8
 			
 			
 			//ERREUR ! Soit les murs soit les limites ! 
