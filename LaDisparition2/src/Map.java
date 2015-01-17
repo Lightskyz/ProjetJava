@@ -4,6 +4,8 @@ import java.awt.Color;
 
 public class Map {
 
+	private static Infiltrant infiltrant;//j'appelle le joueur1 dans Game
+	public static Gardien gardien;
 	protected static int [][] map; //ma mape sera un tableau de tableau --> une grille compos� de Tiles
 	//public static boolean espace = false;
 	
@@ -237,10 +239,12 @@ public class Map {
 				if (map[i][j] == 2){ 
 					StdDraw.setPenColor(Color.YELLOW); //permet de definir la couleur du carr�
 					StdDraw.filledSquare(x,y,r); //on dessine un carr� dans la case
+					
 				}
 				if (map[i][j] == 3){ 
-					StdDraw.setPenColor(Color.BLUE); //permet de definir la couleur du carr�
+					StdDraw.setPenColor(Color.BLACK); //permet de definir la couleur du carr�
 					StdDraw.filledSquare(x,y,r); //on dessine un carr� dans la case
+					StdDraw.picture(x, y, "ordi.gif");
 				}
 				if (map[i][j] == 4){ 
 					StdDraw.setPenColor(Color.GREEN); //permet de definir la couleur du carr�

@@ -20,10 +20,12 @@ public class Timer {
 		long elapsed;
 		if (running){
 			elapsed = (System.currentTimeMillis() - beginning);
+			System.out.println(elapsed);
 		}
 		else{
 			elapsed = (end - beginning);
 		}
 		return elapsed;
 	}
+	
 }
