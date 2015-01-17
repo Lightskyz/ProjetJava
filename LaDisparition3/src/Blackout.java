@@ -5,7 +5,7 @@ import java.awt.Color;
 
 public class Blackout extends Tile{
 
-	public Blackout(int x, int y, Color c) {
+	public Blackout(int x, int y) {
 		super(x, y);
 		super.x = x;
 		super.y = y;
