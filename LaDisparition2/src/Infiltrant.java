@@ -43,9 +43,7 @@ public class Infiltrant {
 	}
 
 	public static void movePlayer(Infiltrant player) {
-
-		int nextX = player.getX();// je prend en memoire la case ou je vais
-									// suivant x
+		int nextX = player.getX();// je prend en memoire la case ou je vais suivant x
 		int nextY = player.getY(); // idem suivant y
 
 		if (StdDraw.isKeyPressed(KeyEvent.VK_Z)) {

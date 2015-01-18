@@ -7,26 +7,22 @@
 public class Hack {
 	public boolean isHacking = false;
 	private static Infiltrant i;
-	private static Map map;
-	
+		
 	public Hack(){
+		
+		if(i.getX() == 12 && i.getY() == 5){ //map[][] = 3
+			boolean isHacking = true;
+			
 		if (isHacking){
 			//lancer le chrono
+			System.out.println(isHacking);
+			System.out.println(i.getX() + "," + i.getY());
 		}
 	}	
 	
 
-	if(i.getX == 12 && i.getY == 5){ //map[][] = 3
-	
-		boolean isHacking = true;
+
 		
-		
-		for (int i = 0; i < map.length; i++){ //double boucle qui permet de parcourir ma map (i d�finit les coordonn�es en x et j les coordonn�es en y)
-			for (int j=0; j< map[i].length; j++){
-		
-				map[i][j] = 8; //si nous sommes sur la case de l'ordi alors la case s'eclaire 
-			}
-		}
 	}
 	
 			//run timer

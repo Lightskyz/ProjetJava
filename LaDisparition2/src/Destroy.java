@@ -5,7 +5,7 @@
  * SwitchOff = false;
  */
 
-public class Destroy  extends Map{
+public class Destroy {
 	//detruire c'est changer les caracteristiques de la case lumiere ainsi que celle adjacente
 	
 	private static Map map;
@@ -14,10 +14,7 @@ public class Destroy  extends Map{
 	
 		public void destroyLight(){
 			map = new Map ();
-			
-			
-			
-			if (g.getX() = map[i][j]
+			if ()
 				
 				
 			for (int i = 0; i < map.length; i++){ //double boucle qui permet de parcourir ma map (i d�finit les coordonn�es en x et j les coordonn�es en y)

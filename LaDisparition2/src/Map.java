@@ -217,6 +217,7 @@ public class Map {
 				 * 
 				 * => si les cases sont egales à 5 alors les noircirs si on le demande
 				 * => les cases de couloir autour de la lumiere doivent rester eclairer lorsqu'on eteint la lumiere
+				 *  => case 6 : Glow, touche autour de la lumiere
 				 */
 				
 				/**

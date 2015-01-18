@@ -20,7 +20,6 @@ public class Game {
 	public boolean isOff; //
 	public boolean isHacking; //
 	public boolean isFreezing; //
-	public boolean isMoving; //
 	public boolean isContact; //
 
 	// List<Entity> entities = new ArrayList<Entity>();
@@ -56,8 +55,8 @@ public class Game {
 			// créer une methode "shoot"
 			// if (StdDraw.isKeyPressed(KeyEvent.VK_G) &&
 			// StdDraw.isKeyPressed(KeyEvent.VK_Z)){
-			//b1.drawPulse();
-			// b1.move(up); //où move up c'est de se deplacer sur 4 cases sauf
+			 
+			 b1.movePulse(b1); //où move up c'est de se deplacer sur 4 cases sauf
 			// si ça touche un mur
 			// b1.movePulse(b1);
 			// si ça touche un mur alors
@@ -66,6 +65,8 @@ public class Game {
 			infiltrant.drawPlayer(); // je dessine le joueur par dessus la carte
 			gardien.drawPlayer(); // ça dessine la map quand c'est allumé
 
+			Hack();
+			
 			if (StdDraw.isKeyPressed(KeyEvent.VK_SPACE)) {
 
 				map.switchOff();
@@ -110,6 +111,18 @@ public class Game {
 	 * public void drawEntity(){ String perso = null; addEntity(new
 	 * Gardien1(1,0, perso)); }
 	 */
+
+	private void Hack() {
+		// TODO Auto-generated method stub
+		if(infiltrant.getX() == 12 && infiltrant.getY() == 5){ //map[][] = 3
+			boolean isHacking = true;
+			
+		if (isHacking){
+			//lancer le chrono
+			System.out.println(isHacking);
+			System.out.println(infiltrant.getX() + "," + infiltrant.getY());
+		}
+	}}
 
 	public static void main(String[] args) throws InterruptedException { // throws
 																			// InterruptedException
