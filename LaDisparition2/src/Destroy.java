@@ -7,26 +7,34 @@
 
 public class Destroy {
 	//detruire c'est changer les caracteristiques de la case lumiere ainsi que celle adjacente
+	//transform� les lumieres et les cases adjacentes en couloir normal
+	public boolean isTouched = false;
+	private static Bulleti bi;
+	private static Bulletg bg;
+		
+			public Destroy(){
+				Map map = new Map();
+				if     (/*bi.getX() == 3 && bi.getY() == 4 || 
+						bi.getX() == 3 && bi.getY() == 7 || 
+						bi.getX() == 6 && bi.getY() == 1 || 
+						bi.getX() == 7 && bi.getY() == 4 ||
+						bi.getX() == 9 && bi.getY() == 5 ||
+						
+						bg.getX() == 3 && bg.getY() == 4 || 
+						bg.getX() == 3 && bg.getY() == 7 || 
+						bg.getX() == 6 && bg.getY() == 1 || 
+						bg.getX() == 7 && bg.getY() == 4 ||
+						bg.getX() == 9 && bg.getY() == 5   */
+						infiltrant.getX() == 3 && infiltrant.getY() == 4
+						){
+					map.destroyLight1();
+					isTouched = true;
+				}
+				else{
+					isTouched = false;
+				}
+			}
 	
-	private static Map map;
-	private static Bulletg g;
-	private static Bulleti i;
+
 	
-		public void destroyLight(){
-			map = new Map ();
-			if ()
-				
-				
-			for (int i = 0; i < map.length; i++){ //double boucle qui permet de parcourir ma map (i d�finit les coordonn�es en x et j les coordonn�es en y)
-				for (int j=0; j< map[i].length; j++){
-					if (map[i][j] == 1){//passé toutes les valeurs de 1 à 0 (toutes les cases grises, deviennent noir, or en plus de devenir noir elle recupere aussi les caracteristiques du couloir (ne pas se deplacer)
-						map[i][j] = 5;
-							}
-					if(map[i][j] == 3){
-						map[i][j] = 7;
-						}
-					}
-		}
-	
-}
 }

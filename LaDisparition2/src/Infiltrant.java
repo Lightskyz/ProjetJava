@@ -32,7 +32,7 @@ public class Infiltrant {
 	}
 
 	public void drawPlayer() { // methode qui me permet de dessiner mon joueur
-		StdDraw.setPenColor(Color.PINK);
+		//StdDraw.setPenColor(Color.PINK);
 
 		int x = (int) Game.WIDTH * getX();
 		int y = Game.Y_MAX - (int) Game.WIDTH * getY();
@@ -87,8 +87,7 @@ public class Infiltrant {
 																	// de part
 																	// et
 																	// d'autre
-																	// de la
-																	// map)
+																	// de la mapp)
 			player.setX(nextX);
 
 		if (nextY >= 0 && nextY < Map.map[0].length)// je donne les limites de
@@ -97,7 +96,7 @@ public class Infiltrant {
 													// map)
 			player.setY(nextY);
 
-		// System.out.println(nextX + "," + nextY);
+		System.out.println(nextX + "," + nextY);
 
 	}
 

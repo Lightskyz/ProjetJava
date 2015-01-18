@@ -86,6 +86,14 @@ public class Bulleti {
 					pulse.drawPulse();
 					for (int i = 0; i < 4; i++){
 					nextX = nextX + i;
+					
+					System.out.println(getX() + "," + getY()); 
+					/*
+					 * (1,1) -> (7,1)
+					 * 
+					 * 
+					 */
+					
 					}
 				}
 
@@ -99,6 +107,8 @@ public class Bulleti {
 					}
 				}
 
+				if (Map.map[nextX][nextY] == 0 || Map.map[nextX][nextY] == 4)
+				
 				if (nextX >= 0 && nextX <= Game.scale * Map.map[0].length)// je donne les limites de la map (horizontalement  de part  et  d'autre de   la map)                 
 						pulse.setX(nextX);
 

@@ -17,15 +17,19 @@ public class Timer {
 		this.running=false; //le chorno s'arrete
 	}
 	public long getElapsedTime(){
-		long elapsed;
+		long elapsed = 0;
 		if (running){
 			elapsed = (System.currentTimeMillis() - beginning);
 			System.out.println(elapsed);
 		}
-		else{
+		 else{
 			elapsed = (end - beginning);
-		}
+		} 
 		return elapsed;
 	}
+
+
+
+	
 	
 }

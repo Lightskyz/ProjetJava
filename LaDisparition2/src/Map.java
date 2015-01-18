@@ -3,7 +3,10 @@ import java.awt.Color;
 
 
 public class Map {
-
+	private static Bulletg bg;
+	private static Bulleti bi;
+	
+	
 	//private static Infiltrant infiltrant;//j'appelle le joueur1 dans Game
 	//public static Gardien gardien;
 	protected static int [][] map; //ma mape sera un tableau de tableau --> une grille compos� de Tiles
@@ -325,7 +328,63 @@ public class Map {
 	}
 	}
 	
+	public void destroyLight1(){
+		if( map[3][4] == 2 || map[3][3] == 6 || map[3][5] == 6 )
+		{
+			map[3][4] = 1; map[3][3] = 1; map[3][5] = 1;
+		}
+	}
+			
+	public void destroyLight2(){
+		if( map[3][7] == 2 || map[4][7] == 6  || map[2][7] == 6  || map[3][6] == 6) 
+			{
+				map[3][7] = 1; 	map[3][6] = 1; map[4][7] = 1; map[2][7] = 1;
+			}
+	}
+	
+	public void destroyLight3(){
+		if( map[6][1] == 2 ||
+			map[7][1] == 6 ||
+			map[5][1] == 6 
+			){
+			map[6][1] = 1;
+			map[7][1] = 1;
+			map[5][1] = 1;
+			}
+			}
+	
+	public void destroyLight4(){
+		if( map[7][4] == 2 ||
+			map[7][3] == 6  ||
+			map[6][4] == 6  ||
+			map[8][4] == 6  ||
+			map[7][5] == 6 
+			){
+			map[7][4] = 1;
+			map[7][3] = 1;
+			map[6][4] = 1;
+			map[8][4] = 1;
+			map[7][5] = 1;
+			}
+		}
+	
+	public void destroyLight5(){
+		if( map[9][5] == 2 ||
+			map[9][4] == 6 ||
+			map[9][6] == 6  ||
+			map[10][5] == 6 
+			){
+			map[9][5] = 1;
+			map[9][4] = 1;
+			map[9][6] = 1;
+			map[10][5] = 1;
+			
+				}
+			}
 	
 	
-}
+	}
+	
+	
+
 

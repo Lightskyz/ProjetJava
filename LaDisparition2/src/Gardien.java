@@ -28,9 +28,8 @@ public class Gardien {
 			y = value;
 		}
 
-
 	public void drawPlayer(){ //methode qui me permet de dessiner mon joueur
-		StdDraw.setPenColor(Color.PINK);
+		//StdDraw.setPenColor(Color.PINK);
 		
 		int x = (int)Game.WIDTH * getX();
 		int y = Game.Y_MAX - (int)Game.WIDTH * getY();
@@ -49,8 +48,6 @@ public class Gardien {
 		int nextX = player.getX();// je prend en memoire la case ou je vais suivant x
 		int nextY = player.getY(); // idem suivant y
 
-		
-		
 		if (StdDraw.isKeyPressed(KeyEvent.VK_UP)){
 			nextY = nextY -1;
 		}
