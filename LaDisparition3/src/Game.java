@@ -15,7 +15,7 @@ public class Game {
 	public static void main(String[] args) {
 		new Game();
 		Map m = new Map("");
-		
-	}
+		Gardien g = new Gardien(1,1,"perso");
+		}
 
 }

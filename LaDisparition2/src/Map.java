@@ -4,15 +4,17 @@ import java.awt.Color;
 
 public class Map {
 
-	private static Infiltrant infiltrant;//j'appelle le joueur1 dans Game
-	public static Gardien gardien;
+	//private static Infiltrant infiltrant;//j'appelle le joueur1 dans Game
+	//public static Gardien gardien;
 	protected static int [][] map; //ma mape sera un tableau de tableau --> une grille compos� de Tiles
 	//public static boolean espace = false;
+	public int length;
 	
  	public Map(){ //constructeur de ma classe -- je d�finis les Tiles de ma map
 		map = new int[17][9];
 		
 		//premiere colonne => limite de la carte a gauche !
+		
 		map[0][0]=4;
 		map[0][1]=4;
 		map[0][2]=4;
@@ -231,10 +233,12 @@ public class Map {
 				if (map[i][j] == 0){ 
 					StdDraw.setPenColor(Color.BLACK); //permet de definir la couleur du carr�
 					StdDraw.filledSquare(x,y,r); //on dessine un carr� dans la case
+					//StdDraw.picture(x,y,"wall.png");
 				}
 				if (map[i][j] == 1){ 
 					StdDraw.setPenColor(Color.GRAY); //permet de definir la couleur du carr�
 					StdDraw.filledSquare(x,y,r); //on dessine un carr� dans la case
+					
 				}
 				if (map[i][j] == 2){ 
 					StdDraw.setPenColor(Color.YELLOW); //permet de definir la couleur du carr�
@@ -242,13 +246,14 @@ public class Map {
 					
 				}
 				if (map[i][j] == 3){ 
-					StdDraw.setPenColor(Color.BLACK); //permet de definir la couleur du carr�
+					StdDraw.setPenColor(Color.WHITE); //permet de definir la couleur du carr�
 					StdDraw.filledSquare(x,y,r); //on dessine un carr� dans la case
 					StdDraw.picture(x, y, "ordi.gif");
 				}
 				if (map[i][j] == 4){ 
-					StdDraw.setPenColor(Color.GREEN); //permet de definir la couleur du carr�
+					StdDraw.setPenColor(Color.GREEN);//permet de definir la couleur du carr�
 					StdDraw.filledSquare(x, y, r);
+					StdDraw.picture(x,y,"wall.png");
 				}
 				if (map[i][j] == 5){ 
 					StdDraw.setPenColor(Color.BLACK); //permet de definir la couleur du carr�
@@ -266,6 +271,7 @@ public class Map {
 					StdDraw.setPenColor(Color.ORANGE); //permet de definir la couleur du carr�
 					StdDraw.filledSquare(x, y, r);
 			}
+				
 			}
 		}
 	}
@@ -276,17 +282,34 @@ public class Map {
 		//donner une condition pour que ça se lance (boolean ?)  
 	//De base c'est toujours "FAUX" et quand je clique sur la touche je passe en vrai et je lance le programme !!
 	
+	
+		
 	for (int i = 0; i < map.length; i++){ //double boucle qui permet de parcourir ma map (i d�finit les coordonn�es en x et j les coordonn�es en y)
 		for (int j=0; j< map[i].length; j++){
+			
+			int r = (int)Game.WIDTH / 2;
+			int x = (int)Game.WIDTH * i;
+			int y = Game.Y_MAX - (int)Game.WIDTH *j;
+			
 			if (map[i][j] == 1){//passé toutes les valeurs de 1 à 0 (toutes les cases grises, deviennent noir, or en plus de devenir noir elle recupere aussi les caracteristiques du couloir (ne pas se deplacer)
-				map[i][j] = 5;
+				//map[i][j] = 5;
+				StdDraw.filledSquare(x, y, r);
+				StdDraw.setPenColor(Color.BLACK); //permet de definir la couleur du carr�
+				
+				
 					}
 			if(map[i][j] == 3){
-				map[i][j] = 7;
+				//map[i][j] = 7;
+				StdDraw.filledSquare(x, y, r);
+				StdDraw.setPenColor(Color.BLACK); //permet de definir la couleur du carr�
+				
 				}
-			}
+			} 
+		} 
+		
+		//StdDraw.clear(Color.BLACK);
+		
 		}
-	}
 	
 	public void switchOn(){
 		for (int i = 0; i < map.length; i++){ //double boucle qui permet de parcourir ma map (i d�finit les coordonn�es en x et j les coordonn�es en y)
