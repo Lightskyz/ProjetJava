@@ -1,5 +1,7 @@
 import java.awt.event.KeyEvent;
 
+import javax.swing.JOptionPane;
+
 public class Game {
 
 	public static final int scale = 2; // echelle
@@ -10,7 +12,7 @@ public class Game {
 	private static Map map; // j'appelle la map dans Game
 	private static Infiltrant infiltrant;// j'appelle le joueur1 dans Game
 	public static Gardien gardien;
-	private static Timer timer;// j'ai besoin du chrono dans Game
+	//private static Timer timer;// j'ai besoin du chrono dans Game
 	private static Bulleti bi;
 	private static Bulletg bg;
 
@@ -20,7 +22,7 @@ public class Game {
 	public boolean isFreezing; // supprimer les deplacements du joueurs
 	public boolean isContact; // si les 2 joueurs sont à côté
 	public boolean isTouched;//si une balle touche la lumiere
-
+	public boolean isWinning;
 	// List<Entity> entities = new ArrayList<Entity>();
 
 	public Game() throws InterruptedException {
@@ -31,18 +33,18 @@ public class Game {
 		map = new Map();
 		infiltrant = new Infiltrant(1, 1);
 		gardien = new Gardien(15, 1);
-		timer = new Timer();
 		bi = new Bulleti(infiltrant.getX(), infiltrant.getY());
 		bg = new Bulletg(gardien.getX(), gardien.getY());
 
 		while (true) {// boucle infinie
-			timer.start(); // on lance le chrono
+			
 
 			// deplacement
 			Infiltrant.movePlayer(infiltrant);
 			Gardien.movePlayer(gardien);
-			bi.movePulse(bi);
+			//bi.movePulse(bi);
 			//bg.movePulse(bg);
+			//bi.shootPulse();
 			
 			// affichage
 			map.drawMap(); // je dessine la map
@@ -71,16 +73,11 @@ public class Game {
 			Destroy();
 			
 			
-			StdDraw.show(0);
-			;// permet d'afficher des animations où 0 = le nombre de
+			StdDraw.show(150);
+			// permet d'afficher des animations où 0 = le nombre de
 				// milliseconde
 
-			timer.stop();
-
-			long time = 300 - timer.getElapsedTime(); // sensibilité, temps de reponse à partir du moment ou on lui ordonne une action
-			if (time < 300) {
-				Thread.sleep(time); // pause || thread = pille
-			}
+			
 		}
 	}
 
@@ -133,6 +130,8 @@ public class Game {
 			}
 				
 	private void Hack() {
+		
+		
 		if(infiltrant.getX() == 12 && infiltrant.getY() == 5){ //map[][] = 3
 			boolean isHacking = true;
 			
@@ -140,12 +139,21 @@ public class Game {
 			//lancer le chrono
 			Timer timer = new Timer();
 			timer.start();
-			System.out.println(isHacking);
-			System.out.println(infiltrant.getX() + "," + infiltrant.getY() + " --> " + timer.getElapsedTime());
+					
+			System.out.println(timer.getElapsedTime());
+		
+			if(timer.getElapsedTime() > 5000 && timer.getElapsedTime() < 5200){
+				timer.stop();
+				isHacking=false;
+				JOptionPane.showMessageDialog(null,"BRAVO TU AS GAGNE");
+				}
+			
+			
 			}
 		}
 	}
 
+	
 	public static void main(String[] args) throws InterruptedException { // throws InterruptedException necessaire pour "Thread"
 		new Game();
 	}

@@ -46,6 +46,10 @@ public class Infiltrant {
 		int nextX = player.getX();// je prend en memoire la case ou je vais suivant x
 		int nextY = player.getY(); // idem suivant y
 
+		if(StdDraw.isKeyPressed(KeyEvent.VK_G)){
+			return;
+		}
+		
 		if (StdDraw.isKeyPressed(KeyEvent.VK_Z)) {
 			nextY = nextY - 1;
 		}
@@ -96,7 +100,7 @@ public class Infiltrant {
 													// map)
 			player.setY(nextY);
 
-		System.out.println(nextX + "," + nextY);
+		//System.out.println(nextX + "," + nextY);
 
 	}
 

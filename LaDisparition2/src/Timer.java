@@ -1,6 +1,6 @@
 
 public class Timer {
-	private long beginning = 0;
+	private static long beginning = System.currentTimeMillis();
 	private long end = 0;
 	private boolean running = false; //par defaut le chrono est eteint 
 	
@@ -9,7 +9,7 @@ public class Timer {
 	}
 	
 	public void start(){
-		this.beginning = System.currentTimeMillis();
+		
 		this.running = true; //le chrono demarre 
 	}
 	public void stop(){

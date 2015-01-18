@@ -5,9 +5,12 @@ import java.util.ArrayList;
 public class Bulleti {
 	private int x;
 	private int y;
-
+	private static Infiltrant infiltrant;
+	private static Gardien gardien;
+	protected static int [][] map;
+	
 	public static ArrayList<Bulletg> bullets = new ArrayList<Bulletg>();
-	public static int ammo = 8;
+	
 
 	public Bulleti(int x, int y) {
 		this.x = x; // ce x c'est la position du joueur qui tire
@@ -53,12 +56,56 @@ public class Bulleti {
 		StdDraw.filledCircle(x, y, r); // mon impulsion est une boule bleue
 	}
 
-	public void movePulse(Bulleti pulse) {
+	/* public void shootPulse(){
+		int compteur = 0;
+		int ammo = 8;
+		int portee = 4;
+		int p = 0; //compteur de portée
+		infiltrant = new Infiltrant(infiltrant.getX(), infiltrant.getY());
+		
+		if (compteur < ammo){
+			if (StdDraw.isKeyPressed(KeyEvent.VK_G) && StdDraw.isKeyPressed(KeyEvent.VK_Q) && infiltrant.getX() >0 ){
+				while (infiltrant.getX() > 0 && 
+						p < portee && 
+						map[infiltrant.getY()][infiltrant.getX() -1] != 0 &&
+						infiltrant.getX() != gardien.getX()){
+					//map[infiltrant.getY()][infiltrant.getX() -1] = 8;
+					
+				//	infiltrant.getX() = infiltrant.getX() -1;
+					p ++;
+					
+				}
+				//infiltrant.getX() = infiltrant.getX() + p;
+				p = 0;
+				
+			}
+		}
+		
+		
+	} */
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/*	public void movePulse(Bulleti pulse) {
 		
 		Infiltrant inf = new Infiltrant(getX(),getY());
 		int nextX = inf.getX();
 		int nextY = inf.getY();
 
+		int portee = 4;
+		
 			//for (int i = 0; i < 4; i++){
 		
 				if (StdDraw.isKeyPressed(KeyEvent.VK_G) && StdDraw.isKeyPressed(KeyEvent.VK_Z)) {
@@ -93,7 +140,7 @@ public class Bulleti {
 					 * 
 					 * 
 					 */
-					
+/*				
 					}
 				}
 
@@ -119,7 +166,7 @@ public class Bulleti {
 															// de la map)
 					pulse.setY(nextY);
 
-			}
+			} */
 		
 	
 	

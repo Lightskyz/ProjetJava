@@ -2,6 +2,16 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
-	<classpathentry kind="lib" path="/Users/Antoine/Documents/ISEP/[II.1102-II.1202] Algorithmique et programmation/stdlib.jar"/>
+	<classpathentry kind="lib" path="/Users/Antoine/Documents/workspace/LaDisparition2/lib/stdlib.jar"/>
+	<classpathentry kind="lib" path="/Users/Antoine/Documents/workspace/LaDisparition2/lib/lwjgl_util.jar">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="LaDisparition2/lib/native/macosx"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/Antoine/Documents/workspace/LaDisparition2/lib/lwjgl.jar">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="LaDisparition2/lib/native/macosx"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
